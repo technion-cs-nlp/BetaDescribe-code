@@ -4,7 +4,7 @@ Understanding the functionality of proteins has been a focal point of biological
 
 ![alt text](https://github.com/technion-cs-nlp/BetaDescribe-code/blob/main/outline_image.png)
 
-Illustration of BetaDescribe workflow. The generator processes the protein and creates multiple descriptions. The judge receives the descriptions and the predicted properties from the validators and decides if the description is valid. Next, the valid descriptions are processed and three are chosen.
+BetaDescribe workflow. The generator processes the protein sequences and creates multiple candidate descriptions. Independently, the validators provide simple textual properties of the protein. The judge receives the candidate descriptions (from the generator) and the predicted properties (from the validators) and rejects or accepts each description. Finally, BetaDescribe provides up to three alternative descriptions for each protein.
 
 
 ## Examples of descriptions of unknown proteins:
