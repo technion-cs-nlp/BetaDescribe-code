@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this repo, please cite it as below."
+authors:
+- family-names: "Dotan"
+  given-names: "Edo"
+- family-names: "Lyubman"
+  given-names: "Iris"
+- family-names: "Bacharach"
+  given-names: "Eran"
+- family-names: "Pupko"
+  given-names: "Tal"
+  orcid: "https://orcid.org/0000-0001-9463-2575"
+- family-names: "Belinkov"
+  given-names: "Yonatan"
+title: "Protein2Text: Providing Rich Descriptions for Protein Sequences"
+version: 1.0.0
+doi: 10.1101/2024.12.04.626777
+date-released: 2024-12-07
+url: "https://github.com/technion-cs-nlp/BetaDescribe-code"
+preferred-citation: 
+  type: article
+  authors:
+  - family-names: "Dotan"
+    given-names: "Edo"
+  - family-names: "Lyubman"
+    given-names: "Iris"
+  - family-names: "Bacharach"
+    given-names: "Eran"
+  - family-names: "Pupko"
+    given-names: "Tal"
+    orcid: "https://orcid.org/0000-0001-9463-2575"
+  - family-names: "Belinkov"
+    given-names: "Yonatan"
+  doi: "10.1101/2024.12.04.626777"
+  journal: "bioRxiv"
+  month: 12
+  title: "Protein2Text: Providing Rich Descriptions for Protein Sequences"
+  year: 2024
