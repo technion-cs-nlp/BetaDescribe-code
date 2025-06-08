@@ -11,6 +11,7 @@ from itertools import groupby
 DESCRIPTION_KEYS = ["FUNCTION$", "CATALYTIC ACTIVITY$", "PATHWAY$", "SUBCELLULAR LOCATION$", "DOMAIN$", "COFACTOR$", "PTM$", "SUBUNIT$", "SIMILARITY$", "INDUCTION$", "MISCELLANEOUS$", "ACTIVITY REGULATION$", "keywords:", "features:"]
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+#print(DEVICE)
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="BetaDescribe: generate predictions")
@@ -81,7 +82,7 @@ def create_json_files(path2folder, predicted_description, primaryAccession, prot
     predicted_description_dict = provide_simple_print(predicted_description)
     predicted_description_dict['sequence'] = protein_sequence
     if not "FUNCTION$" in predicted_description_dict["clean"]:
-        print(f'failed to predict, for predictino num : {num_prediction}')
+        #print(f'failed to predict, for prediction num : {num_prediction}')
         return
     os.makedirs(path2folder, exist_ok=True)
         
@@ -139,7 +140,7 @@ if __name__ == "__main__":
     pipe_enzymes = create_pipe(args.label2id_path_enzymes, args.id2label_path_enzymes, args.model_path_enzymes)
 
     tokenizer = LlamaTokenizer.from_pretrained(args.base_model)
-    model = LlamaForCausalLM.from_pretrained(args.base_model, torch_dtype=torch.bfloat16, use_flash_attention_2=True)
+    model = LlamaForCausalLM.from_pretrained(args.base_model) #, torch_dtype=torch.bfloat16, use_flash_attention_2=True
     model = model.to(DEVICE)
 
     set_seed(42)

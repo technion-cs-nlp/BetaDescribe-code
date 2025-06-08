@@ -192,9 +192,9 @@ if __name__ == "__main__":
         #prompt_origin_and_cell_location = '''You're a biology expert, and you can answer only yes or no. No explanation is needed.\n'''
         if origin:
             if validators_data['origin'][0]['score'] > 0.9:
-                prompt_origin_and_cell_location += '''We are certain that the following protein belongs to the {origin}.\n'''
+                prompt_origin_and_cell_location = '''We are certain that the following protein belongs to the {origin}.\n'''
             else:
-                prompt_origin_and_cell_location += '''We think that the following protein belongs to the {origin}.\n'''
+                prompt_origin_and_cell_location = '''We think that the following protein belongs to the {origin}.\n'''
             prompt_origin_and_cell_location += f'''In addition, the protein subcellular localization is probably in one or more of the following locations: {cell_locations}\n'''
             prompt_origin_and_cell_location += f'''Do you think the following function is possible? please answer yes or no only.\n'''
             prompt_origin_and_cell_location += f'''{prediction_data['clean']['FUNCTION$'][0]}'''
