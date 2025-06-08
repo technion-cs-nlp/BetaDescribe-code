@@ -127,7 +127,7 @@ def create_pipe(label2id_path, id2label_path, model_path, problem_type=None):
 
     tokenizer = AutoTokenizer.from_pretrained(model_path)
 
-    return TextClassificationPipeline(model=model, tokenizer=tokenizer, return_all_scores=True)
+    return TextClassificationPipeline(model=model, tokenizer=tokenizer, device=DEVICE, return_all_scores=True)
 
 if __name__ == "__main__":
     args = parse_arguments()
