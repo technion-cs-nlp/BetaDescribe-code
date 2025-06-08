@@ -193,21 +193,21 @@ python 3_find_optimals --protein_name "example_protein" \
 We note that we use ChatGPT to reject / accept descriptions, thus, CHAT_GPT_API_KEY is needed. We recommend using GPU to reduce inference time.
 
 ```
-export PYTHON_CODE_DIR="/path/to/pipeline/"
-cd $PYTHON_CODE_DIR
+export BETADESCRIBE_DIR="/path/to/pipeline/"
+cd $BETADESCRIBE_DIR
 git clone https://github.com/technion-cs-nlp/BetaDescribe-code
 
-mkdir $PYTHON_CODE_DIR/python_venv/
-conda create -y -p $PYTHON_CODE_DIR/python_venv/BetaDescribe python=3.11
-export PIP_CACHE_DIR=$PYTHON_CODE_DIR/python_venv/
-conda activate $PYTHON_CODE_DIR/python_venv/BetaDescribe
-pip install -r $PYTHON_CODE_DIR/BetaDescribe-code/requirements.txt
+mkdir $BETADESCRIBE_DIR/python_venv/
+conda create -y -p $BETADESCRIBE_DIR/python_venv/BetaDescribe python=3.11
+export PIP_CACHE_DIR=$BETADESCRIBE_DIR/python_venv/
+conda activate $BETADESCRIBE_DIR/python_venv/BetaDescribe
+pip install -r $BETADESCRIBE_DIR/BetaDescribe-code/requirements.txt
 
 ```
 # Run BetaDescribe pipeline:
 
 ```
-export PYTHON_CODE_DIR="/path/to/pipeline/"
+export PYTHON_CODE_DIR=$BETADESCRIBE_DIR/BetaDescribe-code
 export CHAT_GPT_API_KEY="<YOUR_TOKEN_ID>"
 
 export PROTEIN_SEQUENCE="MWAFQEGVCKGNLLSGPTSMKAPDSAARESLDRASEIMTGKSYNAVHTGDLSKLPNQGESPLRIVDSDLYSERSCCWVIEKEGRVVCKSTTLTRGMTGLLNTTRCSSPSELICKVLTVESLSEKIGDTSVEELLSHGRYFKCALRDQERGKPKSRAIFLSHPFFRLLSSVVETHARSVLSKVSAVYTATASAEQRAMMAAQVVESRKHVLNGDCTKYNEAIDADTLLKVWDAIGMGSIGVMLAYMVRRKCVLIKDTLVECPGGMLMGMFNATATLALQGTTDRFLSFSDDFITSFNSPAELREIEDLLFASCHNLSLKKSYISVASLEINSCTLTRDGDLATGLGCTAGVPFRGPLVTLKQTAAMLSGAVDSGVMPFHSAERLFQIKQQECAYRYNNPTYTTRNEDFLPTCLGGKTVISFQSLLTWDCHPFWYQVHPDGPDTIDQKVLSVLASKTRRRRTRLEALSDLDPLVPHRLLVSESDVSKIRAARQAHLKSLGLEQPTNFNYAIYKAVQPTAGC"
@@ -241,15 +241,15 @@ python "1_run_models.py" \
     --label2id_path_enzymes $LABEL2ID_PATH_ENZYMES \
     --model_path_enzymes $MODEL_PATH_ENZYMES \
     --base_model $BASE_MODEL \
-    --working_dir $WORKING_DIR \
+    --working_dir $WORKING_DIR
 
 python "2_reject_alternatives.py" \
     --protein_name $PROTEIN_NAME \
     --working_dir $WORKING_DIR \
-    --chat_gpt_api_key $CHAT_GPT_API_KEY \
+    --chat_gpt_api_key $CHAT_GPT_API_KEY
 
 python "3_find_optimals.py" \
     --protein_name $PROTEIN_NAME \
-    --working_dir $WORKING_DIR \
+    --working_dir $WORKING_DIR
 ```
 
