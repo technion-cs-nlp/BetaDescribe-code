@@ -33,6 +33,7 @@ if __name__ == "__main__":
     list_of_rows = []
 
     for protein, df_specific_protein in df.groupby(by=["protein_name"]):
+        protein = protein[0]
         df_specific_protein.reset_index(inplace=True)
         df_specific_protein['ID'] = df_specific_protein.prediction_type.map(str) + "_" + df_specific_protein.alterntive_num.map(str)
         df_specific_protein = df_specific_protein.drop_duplicates(subset=['ID'], keep='last')
@@ -92,8 +93,10 @@ if __name__ == "__main__":
         communites.sort(reverse=True,key=len)
         #print(communites)
         if len(G.nodes) == 1:
-            print(df_specific_protein.iloc[0]['prediction_str'])
+            #print(df_specific_protein.iloc[0]['prediction_str'])
             prediction_str = df_specific_protein.iloc[0]['prediction_str']
+            print(f'prediction 1:')
+            print(f'\t{prediction_str}')
             list_of_rows.append({'protein': protein, 'option': 0, 'prediction_str': prediction_str})
             continue
         
@@ -116,10 +119,10 @@ if __name__ == "__main__":
                         average_node = sum_weights
                     if average_node > max_node[1]:
                         max_node = (node1, average_node)
-                print(max_node)
                 prediction_str = df_specific_protein.loc[df_specific_protein['ID'] == max_node[0], 'prediction_str'].item()
-                print(max_node[0], prediction_str)
-                list_of_rows.append({'protein': protein, 'option': idx, 'prediction_str': prediction_str})
+                print(f'prediction {idx + 1}:')
+                print(f'\t{prediction_str}')
+                list_of_rows.append({'protein': protein, 'option': idx + 1, 'prediction_str': prediction_str})
         else:
             # no communites
             nodes_scores = []
@@ -137,8 +140,9 @@ if __name__ == "__main__":
             nodes_scores.sort(reverse=True, key=lambda d: d['average'])
             for idx, node in enumerate(nodes_scores[0:min(len(nodes_scores), 3)]):
                 prediction_str = df_specific_protein.loc[df_specific_protein['ID'] == node['node'], 'prediction_str'].item()
-                print(node['node'], prediction_str)
+                print(f'prediction {idx + 1}:')
+                print(f'\t{prediction_str}')
                 list_of_rows.append({'protein': protein, 'option': idx, 'prediction_str': prediction_str})
 
     results_df = pd.DataFrame(list_of_rows)
-    results_df.to_csv(os.path.join(args.working_dir, f'{protein_name}_{args.optimal_results_file_name}.csv'))
+    results_df.to_csv(os.path.join(args.working_dir, f'{protein_name}_{args.optimal_results_file_name}.csv'), index=False)
