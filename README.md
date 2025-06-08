@@ -189,27 +189,41 @@ python 3_find_optimals --protein_name "example_protein" \
                       --optimal_results_file_name "optimal_results"
 ```
 
+# Install BetaDescribe:
+We note that we use ChatGPT to reject / accept descriptions, thus, CHAT_GPT_API_KEY is needed. We recommend using GPU to reduce inference time.
 
+```
+export PYTHON_CODE_DIR="/path/to/pipeline/"
+cd $PYTHON_CODE_DIR
+git clone https://github.com/technion-cs-nlp/BetaDescribe-code
+
+mkdir $PYTHON_CODE_DIR/python_venv/
+conda create -y -p $PYTHON_CODE_DIR/python_venv/BetaDescribe python=3.11
+export PIP_CACHE_DIR=$PYTHON_CODE_DIR/python_venv/
+conda activate $PYTHON_CODE_DIR/python_venv/BetaDescribe
+pip install -r $PYTHON_CODE_DIR/BetaDescribe-code/requirements.txt
+
+```
 # Run BetaDescribe pipeline:
 
 ```
 export PYTHON_CODE_DIR="/path/to/pipeline/"
 export CHAT_GPT_API_KEY="<YOUR_TOKEN_ID>"
 
-export PROTEIN_SEQUENCE="MISGHTLCMLVLFYLYSYSNAQHELQLNPTTYHWLN"
+export PROTEIN_SEQUENCE="MWAFQEGVCKGNLLSGPTSMKAPDSAARESLDRASEIMTGKSYNAVHTGDLSKLPNQGESPLRIVDSDLYSERSCCWVIEKEGRVVCKSTTLTRGMTGLLNTTRCSSPSELICKVLTVESLSEKIGDTSVEELLSHGRYFKCALRDQERGKPKSRAIFLSHPFFRLLSSVVETHARSVLSKVSAVYTATASAEQRAMMAAQVVESRKHVLNGDCTKYNEAIDADTLLKVWDAIGMGSIGVMLAYMVRRKCVLIKDTLVECPGGMLMGMFNATATLALQGTTDRFLSFSDDFITSFNSPAELREIEDLLFASCHNLSLKKSYISVASLEINSCTLTRDGDLATGLGCTAGVPFRGPLVTLKQTAAMLSGAVDSGVMPFHSAERLFQIKQQECAYRYNNPTYTTRNEDFLPTCLGGKTVISFQSLLTWDCHPFWYQVHPDGPDTIDQKVLSVLASKTRRRRTRLEALSDLDPLVPHRLLVSESDVSKIRAARQAHLKSLGLEQPTNFNYAIYKAVQPTAGC"
 export PROTEIN_NAME="protein1"
 
 export ID2LABEL_PATH_CELL_LOCATION="$PYTHON_CODE_DIR/supports_files/id2label_cell_location.json"
 export LABEL2ID_PATH_CELL_LOCATION="$PYTHON_CODE_DIR/supports_files/label2id_cell_location.json"
-export MODEL_PATH_CELL_LOCATION="$PYTHON_CODE_DIR/models/cell_locations/"
+export MODEL_PATH_CELL_LOCATION="dotan1111/BetaDescribe-Validator-SubcellularLocalization"
 export ID2LABEL_PATH_ORIGIN="$PYTHON_CODE_DIR/supports_files/id2label_level_0_origin.json"
 export LABEL2ID_PATH_ORIGIN="$PYTHON_CODE_DIR/supports_files/label2id_level_0_origin.json"
-export MODEL_PATH_ORIGIN="$PYTHON_CODE_DIR/models/origin/"
+export MODEL_PATH_ORIGIN="dotan1111/BetaDescribe-Validator-HigherLevelTaxonomy"
 export ID2LABEL_PATH_ENZYMES="$PYTHON_CODE_DIR/supports_files/id2label_enzyme.json"
 export LABEL2ID_PATH_ENZYMES="$PYTHON_CODE_DIR/supports_files/label2id_enzyme.json"
-export MODEL_PATH_ENZYMES="$PYTHON_CODE_DIR/models/enzyme/"
+export MODEL_PATH_ENZYMES="dotan1111/BetaDescribe-Validator-EnzymaticActivity"
 
-export BASE_MODEL="$PYTHON_CODE_DIR/models/TheGenerator/"
+export BASE_MODEL="dotan1111/BetaDescribe-TheGenerator"
 export WORKING_DIR="$PYTHON_CODE_DIR/testing/$PROTEIN_NAME"
 
 cd $PYTHON_CODE_DIR
