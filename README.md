@@ -215,6 +215,7 @@ export PROTEIN_SEQUENCE="MWAFQEGVCKGNLLSGPTSMKAPDSAARESLDRASEIMTGKSYNAVHTGDLSKLP
 export PROTEIN_NAME="protein1"
 
 conda activate $BETADESCRIBE_DIR/python_venv/BetaDescribe
+export HF_HOME=$BETADESCRIBE_DIR/python_venv/
 export PYTHON_CODE_DIR=$BETADESCRIBE_DIR/BetaDescribe-code
 
 export ID2LABEL_PATH_CELL_LOCATION="$PYTHON_CODE_DIR/supports_files/id2label_cell_location.json"
