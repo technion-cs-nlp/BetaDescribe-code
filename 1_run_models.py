@@ -36,7 +36,7 @@ def parse_arguments():
 
     parser.add_argument("--temperature", type=float, default=1.0, help="Temperature for generation")
     parser.add_argument("--num_of_descritpions", type=int, default=15,help="Number of description per prompt")
-    parser.add_argument("--max_sequence_length", type=int, default=1536, help="Maximum number of tokens per generation")
+    parser.add_argument("--max_sequence_length", type=int, default=1024, help="Maximum number of tokens per generation")
     parser.add_argument("--validators_results_name", type=str, help="Validators file name", default='validators_results')
     return parser.parse_args()
 
