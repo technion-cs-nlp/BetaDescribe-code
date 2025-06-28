@@ -95,7 +95,7 @@ Generates the descriptions for proteins. Also predicts the origin, subcellular l
 + --working_dir (str, required): Path to save predictions.
 + --temperature (float, optional): Temperature for generation. Default is 1.0.
 + --num_of_descriptions (int, optional): Number of descriptions per prompt. Default is 15.
-+ --max_sequence_length (int, optional): Maximum number of tokens per generation. Default is 1536.
++ --max_sequence_length (int, optional): Maximum number of tokens per generation. Default is 1024.
 + --validators_results_name (str, optional): Validators file name. Default is 'validators_results'.
 
 
