@@ -190,7 +190,8 @@ python 3_find_optimals --protein_name "example_protein" \
 ```
 
 # Install BetaDescribe:
-We note that we use ChatGPT to reject / accept descriptions, thus, CHAT_GPT_API_KEY is needed. We recommend using GPU to reduce inference time.
+We note that we use ChatGPT to reject / accept descriptions, thus, CHAT_GPT_API_KEY is needed.
+The installation process should take a few minutes.
 
 ```
 export BETADESCRIBE_DIR="<PATH_TO_SAVE_BETADESCRIBE>"
@@ -205,6 +206,11 @@ pip install -r $BETADESCRIBE_DIR/BetaDescribe-code/requirements.txt
 
 ```
 # Run BetaDescribe pipeline:
+We recommend using GPU to reduce inference time.
+Model loading onto the GPU typically takes a few minutes (and can take up to an hour in some cases), while inference for a single protein usually takes a few seconds (up to a minute).
+We tested code and installation on:
+ - a single NVIDIA L40S GPU core, with a memory of 46G (and a CUDA version of 12.6)
+ - a single NVIDIA RTX A6000 GPU core, with a memory of 48G (and a CUDA version of 12.8).
 
 ```
 export CHAT_GPT_API_KEY="<YOUR_TOKEN_ID>"
