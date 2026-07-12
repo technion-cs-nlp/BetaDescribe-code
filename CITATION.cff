@@ -5,6 +5,8 @@ authors:
   given-names: "Edo"
 - family-names: "Lyubman"
   given-names: "Iris"
+- family-names: "Ehrlich"
+  given-names: "Marcelo"
 - family-names: "Bacharach"
   given-names: "Eran"
 - family-names: "Pupko"
@@ -12,11 +14,15 @@ authors:
   orcid: "https://orcid.org/0000-0001-9463-2575"
 - family-names: "Belinkov"
   given-names: "Yonatan"
-title: "Protein2Text: Providing Rich Descriptions for Protein Sequences"
+title: "BetaDescribe: Providing Rich Descriptions for Protein Sequences"
 version: 1.0.0
-doi: 10.1101/2024.12.04.626777
-date-released: 2024-12-07
-url: "https://github.com/technion-cs-nlp/BetaDescribe-code"
+doi: 10.1073/pnas.2537345123
+date-released: 2026-06-29
+volume: 123
+number: 27
+pages: e2537345123
+eprint: https://www.pnas.org/doi/pdf/10.1073/pnas.2537345123
+url: "https://www.pnas.org/doi/abs/10.1073/pnas.2537345123"
 preferred-citation: 
   type: article
   authors:
@@ -24,6 +30,8 @@ preferred-citation:
     given-names: "Edo"
   - family-names: "Lyubman"
     given-names: "Iris"
+  - family-names: "Ehrlich"
+    given-names: "Marcelo"
   - family-names: "Bacharach"
     given-names: "Eran"
   - family-names: "Pupko"
@@ -31,8 +39,11 @@ preferred-citation:
     orcid: "https://orcid.org/0000-0001-9463-2575"
   - family-names: "Belinkov"
     given-names: "Yonatan"
-  doi: "10.1101/2024.12.04.626777"
-  journal: "bioRxiv"
-  month: 12
-  title: "Protein2Text: Providing Rich Descriptions for Protein Sequences"
-  year: 2024
+  doi: "10.1073/pnas.2537345123"
+  journal: "Proceedings of the National Academy of Sciences"
+  month: 06
+  title: "BetaDescribe: Providing Rich Descriptions for Protein Sequences"
+  year: 2026
+  volume: 123
+  number: 27
+  pages: e2537345123
